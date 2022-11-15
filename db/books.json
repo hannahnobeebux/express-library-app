@@ -1,0 +1,32 @@
+{
+    "booksData": [
+      {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "rating": 0, 
+        "description": "The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, near New York City, the novel depicts first-person narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan"
+      },
+      {
+        "title": "Jane Eyre",
+        "author": "Charlotte Bronte",
+        "rating": 0, 
+        "description": "Jane Eyre is a Bildungsroman which follows the experiences of its eponymous heroine, including her growth to adulthood and her love for Mr Rochester, the brooding master of Thornfield Hall"
+      }, {
+        "title": "Anna Karenina",
+        "author": "Leo Tolstoy",
+        "rating": 0, 
+        "description": "Anna Karenina is often published in more than 800 pages. It deals with themes of betrayal, faith, family, marriage, Imperial Russian society, desire, and rural vs. city life. The story centers on an extramarital affair between Anna and dashing cavalry officer Count Alexei Kirillovich Vronsky that scandalizes the social circles of Saint Petersburg and forces the young lovers to flee to Italy in a search for happiness, but after they return to Russia, their lives further unravel."
+      }, {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "rating": 0, 
+        "description": "The novel follows the character development of Elizabeth Bennet, the dynamic protagonist of the book who learns about the repercussions of hasty judgments and comes to appreciate the difference between superficial goodness and actual goodness."
+      }, {
+        "title": "Wuthering Heights",
+        "author": "Emily Bronte",
+        "rating": 0, 
+        "description": "t concerns two families of the landed gentry living on the West Yorkshire moors, the Earnshaws and the Lintons, and their turbulent relationships with Earnshaw's foster son, Heathcliff."
+      }
+    ]
+  }
+

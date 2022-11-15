@@ -1,0 +1,27 @@
+{
+    "usersData": [
+      {
+        "firstName": "Amy",
+        "email": "amy@email.com",
+        "password": "password123"
+      },
+      {
+        "firstName": "Jake",
+        "email": "jakep@outlook.com",
+        "password": "qwerty27"
+      }, {
+        "firstName": "Gina",
+        "email": "gina@gmail.com",
+        "password": "helloworld10"
+      }, {
+        "firstName": "Raymond",
+        "email": "raymond@hotmail.com",
+        "password": "cheddar234"
+      }, {
+        "firstName": "Charles",
+        "email": "charlie@outlook.com",
+        "password": "niko12"
+      }
+    ]
+  }
+  

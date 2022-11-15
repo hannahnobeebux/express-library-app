@@ -1,0 +1,36 @@
+classDiagram 
+
+    one library can have many users
+    Library "1" --> "*" User 
+
+    one user can borrow many books
+    User "1" --> "*" Book 
+
+    one library can have many books 
+    Library --> "many" Book : Contains
+
+
+
+    class User {
+        +number userId
+        +string firstName 
+        +string lastName 
+        +string emailAddress
+    }
+
+    class Book {
+        +number bookId
+        +string title 
+        +string author 
+        +number rating
+        +setRating(newRating)
+    }
+
+    class Library {
+        +number bookId
+        +string bookTitle 
+        +string status 
+        +number userId
+    }
+
+

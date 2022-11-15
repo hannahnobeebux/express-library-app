@@ -1,0 +1,10 @@
+sequenceDiagram 
+
+    actor User 
+    User ->> Library: Goes to the library 
+    Library ->> Library (Bookshelves): Browsing collections of books
+    Library (Bookshelves) ->> Book: Found a book (TBR)
+    activate Book
+    User ->> Book: Reading the book (Reading)
+    Book ->> Library: Returning the book (Read)
+    deactivate Book 
