@@ -5,13 +5,14 @@ const seed = require('./db/seed')
 // const { db } = require('./db/db')
 
 
-// const bookRouter = require('./routes/book.route')
-// const userRouter = require('./routes/user.route')
+const bookRouter = require('./routes/book.route')
+const userRouter = require('./routes/user.route')
 
 const app = express()
 app.use(express.json())
 
 app.use(express.urlencoded({extended:true}))
+//SENDING THE FILES THAT ARE STORED IN THE PUBLIC FOLDER
 app.use(express.static("public"));
 
 const htmlPath = path.join(__dirname, "index.html")
@@ -26,19 +27,24 @@ const htmlPath = path.join(__dirname, "index.html")
 //     res.sendStatus(200)
 // })
 
-// app.use("/", userRouter)
+app.use("/", userRouter)
 
-// app.use("/", bookRouter)
+app.use("/", bookRouter)
 
 // app.get("/seed", async (req,res) => {
 //     await seed()
 //     res.status(200).send("Database has been repopulated")
 // })
 
+app.post("/inputtedName", (req,res) => {
+    res.send({username: `Welcome ${req.body.username}`})
+})
+
 app.listen(5000, async () => {
-    await seed()
+    // await seed()
     console.log("listening on port 5000")
 })
+
 
 module.exports = app
 

@@ -4,10 +4,15 @@ const User = require('../models/user.model')
 
 const bookRouter = Router ()
 
-//Returning all the books in the database 
+//RETURNING ALL THE BOOKS IN THE DATABASE
 //localhost:3000/books
 bookRouter.get("/books", async (req, res) => {
-    res.status(200).send(await Book.findAll())
+    const books = await Book.findAll()
+    res.status(200).send(books)
 })
+
+
+
+
 
 module.exports = bookRouter

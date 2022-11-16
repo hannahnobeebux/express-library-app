@@ -42,3 +42,4 @@ const Book = db.define(
 )
 
 module.exports = Book 
+// export default Book 

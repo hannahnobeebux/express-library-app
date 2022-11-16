@@ -4,19 +4,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Oswald&family=Roboto+Condensed&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./styles.css">
-    <script src="script.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
     <title>The Online Library</title>
 </head>
-<body>
-    <h1>Welcome to the Online Library</h1>
 
-    <section id="entering-name">
-        <h2>Please enter your name</h2>
-        <input id="user-name" type="text">
-        <button id="submitting-name"type="submit"></button>
+<header>
+    <h1>Welcome to the Online Library</h1>
+</header>
+
+
+<body>
+
+
+
+    <section id="choosing">
+
+        <!-- NAME -->
+        <label for="name">Choose a name</label>
+        <select name="name" id="dropdown-menu-user">
+            <option value="">What is your name?</option>
+        </select>
+
+        <!-- BOOK -->
+        <label for="books">Choose a book</label>
+        <select name="books" id="dropdown-menu-books">
+            <option value="">Please choose a book</option>
+        </select>
 
     </section>
+
+  
+
+    <div class = "dropdown" id="tbr-dropdown">
+   </div>
+
+
+
+
+    <section id="buttons">
+        <h3>To Be Read</h2>
+        <section id="tbr">
+
+        </section>
+        <button id="tbr-list">Add to TBR</button>
+
+
+
+        <h3>Reading</h3>
+        <section id="reading">
+
+        </section>
+        <button id="reading-list">Add to Reading</button>
+
+
+
+        <h3>Read</h3>
+        <section id="read"></section>
+        <button id="read-list">Add to Read</button>
+        <select name="rating" id="rating">
+            <option value="rating">Give the book a rating</option>
+            <option value="rating">⭐️</option>
+            <option value="rating">⭐️⭐️</option>
+            <option value="rating">⭐️⭐️⭐️</option>
+            <option value="rating">⭐️⭐️⭐️⭐️</option>
+            <option value="rating">⭐️⭐️⭐️⭐️⭐️</option>
+        </select>
+
+    </section>
+
+        <section id="choosing-a-book">
+        <!-- Adding welcome message here! -->
+    
+        </section>
+
+
+<!-- NOTES -->
+    <!-- <section id="entering-name">
+        <h2>Please enter your name</h2>
+        <input id="username" type="text" name ="username" placeholder="Name">
+        <button id="submitting-name"type="submit">Submit</button>
+    </section> -->
+
+        <!-- <button id="dropdown-user-button">Choose a user</button>
+        <ul class="dropdown-menu" id="userDropdown"> 
+            will create list items to be displayed here
+        </ul> -->
+
+            <!-- MAKING A DROP DOWN MENU NORMAL WAY-->
+    <!-- <label for="tbr-list">Please choose a book to add to TBR</label>
+    <select name="book" id="book">
+    </select> -->
+
+         <!-- <button id="dropdown-book-button">Choose a book</button> -->
+
+
+        <!-- <ul class="dropdown-menu" id ="tbrDropdown"> 
+            will create list items to be displayed here
+        </ul> -->
+
     
 </body>
 </html>

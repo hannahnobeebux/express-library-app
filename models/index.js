@@ -1,5 +1,6 @@
 //RELATIONSHIPS BETWEEN MODELS WILL BE MADE HERE
 
+const db = require("../db/db");
 const Book = require("./book.model");
 const User = require("./user.model");
 
@@ -10,6 +11,8 @@ const User = require("./user.model");
 
 User.belongsToMany(Book, {through: 'User_Book'})
 Book.belongsToMany(User, {through: 'User_Book'})
+
+// db.query('ALTER TABLE User_Book ADD COLUMN status STRING')
 
 //ONE-TO-MANY RELATIONSHIP
 // A SINGLE USER CAN BORROW MANY BOOKS 
