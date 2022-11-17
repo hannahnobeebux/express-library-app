@@ -7,19 +7,65 @@ h1{
     font-family: 'Roboto Condensed', sans-serif;     */
 }
 
-header{
+header {
     background-color: #E8C07D;
     border-radius: 10%;
     /* width:50vw;
     height:20vw; */
     width: 30vw;
     height:5vw;
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    align-items: center;
+    justify-content: center;
+}
+
+h2{
+    color: green;
 }
 
 body{
     background-color: #CDDEC1;
+    /* display:grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(10, 10%); */
+}
+
+form {
+    display: grid; 
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows: repeat(10, 10%); 
+    grid-gap: 10px;
+    background-color: #9FC088;
+}
+
+form #choosing {
+    color:red;
+    grid-column:4;
+    grid-row: 1;
+}
+
+#buttons{
+    grid-column: 4;
+    grid-row: 4;
+    grid-gap: 10px;
+    margin:10px;
+    padding:10px;
 }
 
 #entering-name{
     background-color: #9FC088;
+}
+
+#chosen-book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

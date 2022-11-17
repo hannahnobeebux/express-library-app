@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Oswald&family=Roboto+Condensed&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles.css">
-    <script type="module" src="./script.js" defer></script>
+    <script src="./script.js" defer></script>
     <title>The Online Library</title>
 </head>
 
@@ -20,24 +20,70 @@
 
 
 <body>
+    
+    <h2>Have you been reading? Make sure to update your reading lists! 📔</h2>
+    <form action="/update" method="POST">
+        <section id="choosing">
+
+            <!-- NAME SECTION-->
+
+            <label for="name">Choose a name</label>
+            <select name="name" id="dropdown-menu-user">
+                <option value="">What is your name?</option>
+            </select>
+
+           
+    
+            <!-- BOOK -->
+            <label for="book">Choose a book</label>
+            <select name="book" id="dropdown-menu-book">
+                <option value="">Please choose a book</option>
+            </select>
+    
+        </section>
+
+        <section id="buttons">
+            <!-- <h3>To Be Read</h3> -->
+            <section id="tbr"></section>
+            <button id="tbr-list" name="status" value="tbr">Add to TBR</button>
+            <!-- <input type="submit" id="tbr-list"name="status" value="tbr" placeholder="Add to TBR"> -->
+    
+    
+            <!-- <h3>Reading</h3> -->
+            <section id="reading"> </section>
+            <!-- <button id="reading-list" name="status" value="reading">Add to Reading</button> -->
+            <input type="submit" id="reading-list"name="status" value="reading" placeholder="Add to Reading">
+    
+    
+            <!-- <h3>Read</h3> -->
+            <section id="read"></section>
+
+            <select name="rating" id="rating" value="rating">
+                <option value="rating-not-provided">Give the book a rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <input type="submit" id="read-list"name="status" value="read" placeholder="Add to Read">
+        
+        </section>
+
+    </form>
+
+    <!-- <section id="chosen-book">
+
+    
+    </section> -->
+
+    <div id="chosen-book">
+        <button type="submit" id="submitting-book">Submit!</button>
+    </div>
 
 
-
-    <section id="choosing">
-
-        <!-- NAME -->
-        <label for="name">Choose a name</label>
-        <select name="name" id="dropdown-menu-user">
-            <option value="">What is your name?</option>
-        </select>
-
-        <!-- BOOK -->
-        <label for="books">Choose a book</label>
-        <select name="books" id="dropdown-menu-books">
-            <option value="">Please choose a book</option>
-        </select>
-
-    </section>
+    
 
   
 
@@ -45,43 +91,9 @@
    </div>
 
 
-
-
-    <section id="buttons">
-        <h3>To Be Read</h2>
-        <section id="tbr">
-
-        </section>
-        <button id="tbr-list">Add to TBR</button>
-
-
-
-        <h3>Reading</h3>
-        <section id="reading">
-
-        </section>
-        <button id="reading-list">Add to Reading</button>
-
-
-
-        <h3>Read</h3>
-        <section id="read"></section>
-        <button id="read-list">Add to Read</button>
-        <select name="rating" id="rating">
-            <option value="rating">Give the book a rating</option>
-            <option value="rating">⭐️</option>
-            <option value="rating">⭐️⭐️</option>
-            <option value="rating">⭐️⭐️⭐️</option>
-            <option value="rating">⭐️⭐️⭐️⭐️</option>
-            <option value="rating">⭐️⭐️⭐️⭐️⭐️</option>
-        </select>
-
-    </section>
-
-        <section id="choosing-a-book">
-        <!-- Adding welcome message here! -->
     
-        </section>
+
+       
 
 
 <!-- NOTES -->

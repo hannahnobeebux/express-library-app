@@ -31,9 +31,6 @@ const Book = db.define(
             type: DataTypes.STRING,
             allowNull: false 
         }, 
-        rating: {
-            type: DataTypes.NUMBER 
-        }, 
         description: {
             type: DataTypes.STRING
         }

@@ -9,16 +9,19 @@ const User = require("./user.model");
 //A SINGLE BOOK CAN BE ON MANY USERS LISTS (WANT TO READ/TBR)
 //LIBRARY - PERSONAL LIBRARY FOR TRACKING READING LISTS
 
-User.belongsToMany(Book, {through: 'User_Book'})
-Book.belongsToMany(User, {through: 'User_Book'})
+User.belongsToMany(Book, {through: 'User_Book', timestamps: false})
+Book.belongsToMany(User, {through: 'User_Book', timestamps: false})
+
+// db.sync({force: true}).then(() => console.log('synced database')).catch(error => console.log(error))
 
 // db.query('ALTER TABLE User_Book ADD COLUMN status STRING')
+// db.query('ALTER TABLE User_Book ADD COLUMN rating STRING')
 
 //ONE-TO-MANY RELATIONSHIP
 // A SINGLE USER CAN BORROW MANY BOOKS 
 // A SINGLE BOOK CAN ONLY BE BORROWED BY A SINGLE USER AT ALL TIMES 
 
-// User.hasMany(Board)
-// Board.belongsTo(User)
+// User.hasMany(Book)
+// Book.belongsTo(User)
 
 module.exports = {Book, User}

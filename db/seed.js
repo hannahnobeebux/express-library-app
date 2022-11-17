@@ -24,6 +24,9 @@ const seed = async () => {
 
     await db.sync({ force: true }); // clear out database + tables
 
+    await db.query('ALTER TABLE User_Book ADD COLUMN status STRING')
+    await db.query('ALTER TABLE User_Book ADD COLUMN rating STRING')
+
     const bookSeedPath = path.join(__dirname, 'books.json'); //get the path to Book.json file
     const userSeedPath = path.join(__dirname, 'users.json')
 

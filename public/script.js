@@ -2,6 +2,8 @@
 //alert("hello world")
 
 
+
+
 // const Book  = require("../models/Book")
 
 // import Book from "../models/book.model"
@@ -14,15 +16,17 @@ const choosingBookSection = document.getElementById('choosing-a-book')
 // const enteringName = document.getElementById('entering-name')
 // const submitNameButton = document.getElementById('submitting-name')
 
-const tbrButton = document.getElementById('tbr')
-const readingButton = document.getElementById('reading')
-const readButton = document.getElementById('read')
+const readingButton = document.getElementById('reading-list')
+const readButton = document.getElementById('read-list')
 
 // const tbrList = document.getElementById('tbr-list')
 // const readingList = document.getElementById('reading-list')
 // const readList = document.getElementById('read-list')
 
-const userName = document.getElementById("username")
+const userName = document.getElementById("dropdown-menu-user")
+const bookTitle = document.getElementById('dropdown-menu-book')
+
+
 
 // const choosingBookButton = document.getElementById("dropdown-book-button")
 
@@ -56,7 +60,7 @@ function addBooks () {
 // {id, title, author, rating, description}
 
 
-let bookTitleDropdown = document.querySelector("#dropdown-menu-books")
+let bookTitleDropdown = document.querySelector("#dropdown-menu-book")
 function createBookItem(book) {
     let listItem = document.createElement('option') 
     let bookTitle = book.title 
@@ -66,6 +70,7 @@ function createBookItem(book) {
     // button.innerHTML = bookTitle
     // button.type = 'button'
     // (listItem).append(button)
+
    
     return listItem
 }
@@ -121,9 +126,61 @@ async function displayUsers(){
     return response
 }
 
+// tbrButton.addEventListener("click", async () => {
+//     const response = 
+// })
+
 
 displayBooks()
 displayUsers()
+
+//GETTING THE DATA INPUTTED BY THE USER AND DISPLAYING ONTO WEB PAGE 
+const chosenBook = document.getElementById("chosen-book")
+const tbrButton = document.getElementById('tbr-list')
+
+
+tbrButton.addEventListener("click",  () => {
+    console.log("hello")
+    fetch(`/update`, {
+        method: "POST", 
+        headers: myHeaders,
+        body: JSON.stringify({
+            name: userName.value,
+            title: bookTitle.value, 
+            status: "tbr"
+            // status: tbrButton.value
+        })
+    .then(res => res.json())
+    .then(({result})=> {
+        console.log(result)
+        chosenBook.textContent = result 
+        })
+    })
+
+})
+
+const submitButton = document.getElementById('submitting-book')
+submitButton.addEventListener("submit", () => {
+    console.log("hello")
+})
+
+
+
+
+// tbrButton.addEventListener("click", () => {
+//     const name = userName.value 
+//     console.log(name)
+// })
+
+// function chooseStatus () {
+//     const response = fetch('/update')
+// }
+
+
+
+
+
+
 
 //choosingBookItem.append(createListItem(book))
 // choosingBookButton.addEventListener("click", displayBooks)
