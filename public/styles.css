@@ -1,8 +1,25 @@
+@import url("https://fonts.googleapis.com/css?family=Bebas Neue&display=swap");
+selector{
+font-family: 'Bebas Neue', sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Merriweather&display=swap");
+selector{
+font-family: 'Merriweather', sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto Condensed&display=swap");
+selector{
+font-family: 'Roboto Condensed', sans-serif;
+}
+
 h1{
     color: #614124; 
     font-family: 'Merriweather', serif;
+    /* font-family: 'Bebas Neue'; */
 
     text-align: center;
+    
     /* font-family: 'Oswald', sans-serif;
     font-family: 'Roboto Condensed', sans-serif;     */
 }
@@ -12,7 +29,9 @@ header {
     border-radius: 10%;
     /* width:50vw;
     height:20vw; */
-    width: 30vw;
+    /* width: 30vw; */
+    padding: 10px;
+    max-width: fit-content;
     height:5vw;
     display: flex; 
     flex-wrap: wrap;
@@ -20,19 +39,28 @@ header {
     flex: 1;
     align-items: center;
     justify-content: center;
+    margin-left: 33vw;
 }
 
 h1{
     align-items: center;
     justify-content: center;
+    
 }
 
 h2{
     color: green;
+    margin-left:33vw;
+    font-family: 'Bebas Neue', 'serif';
 }
 
 body{
     background-color: #CDDEC1;
+    min-height: 100vh;
+    /* display: flex;
+    flex-direction: column; */
+   
+
     /* display:grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(10, 10%); */
@@ -40,24 +68,128 @@ body{
 
 form {
     display: grid; 
-    grid-template-columns: repeat(10,10%);
-    grid-template-rows: repeat(10, 10%); 
+    justify-content: center;
+  
+    place-items: center;
+    /* grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: repeat(10, 10%);  */
     grid-gap: 10px;
     background-color: #9FC088;
+    border-radius: 25px;
+
+    grid-template-areas:
+    "e e"
+    "a b"
+    "c d"
+
 }
 
 form #choosing {
-    color:red;
-    grid-column:4;
-    grid-row: 1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    grid-gap:10px;
+    color:#CC704B;
+    font-weight: bold;
+    /* grid-column:5;
+    grid-row: 1; */
+
+    grid-area: e;
 }
 
-#buttons{
-    grid-column: 4;
-    grid-row: 4;
-    grid-gap: 10px;
+/* can't access grid?? */
+#tbr-list{
+    /* grid-column: 5;
+    grid-row: 4; */
+    grid-area: a;
+    gap: 10px;
+
+    position: relative;
     margin:10px;
     padding:10px;
+    transition: 0.2s;
+    border-radius: 20px;
+    border-color: #3e8e41;
+    font-family: 'Roboto Condensed', 'serif';
+    font-weight: bold;
+
+    width: 110px;
+
+    /* background-color: #CDDEC1; */
+}
+
+#tbr-list :hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+#reading-list :hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+#read-list :hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+#rating :hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+#reading-list{
+   
+    /* grid-column: 5;
+    grid-row: 4; */
+
+    grid-area: b;
+    position: relative;
+    margin:10px;
+    padding:10px;
+    transition: 0.2s;
+    border-radius: 20px;
+    border-color: #3e8e41;
+    font-family: 'Roboto Condensed', 'serif';
+    font-weight: bold;
+    /* background-color: #CDDEC1; */
+
+    width: 110px;
+}
+
+#read-list{
+    /* grid-column: 5;
+    grid-row: 4; */
+
+
+    grid-area: c;
+    position: relative;
+    margin:10px;
+    padding:10px;
+    transition: 0.2s;
+    border-radius: 20px;
+    border-color: #3e8e41;
+    font-family: 'Roboto Condensed', 'serif';
+    font-weight: bold;
+    /* background-color: #CDDEC1; */
+
+    width: 110px;
+}
+
+#rating {
+    /* grid-column: 5;
+    grid-row: 4; */
+
+    grid-area: d;
+    position: relative;
+    margin:10px;
+    padding:10px;
+    border-radius: 20px;
+    border-color: #3e8e41;
+    font-family: 'Roboto Condensed', 'serif';
+
+    width: max-content;
 }
 
 #entering-name{
@@ -66,6 +198,58 @@ form #choosing {
 
 #chosen-book {
     display: flex;
+    /* justify-content:flex-start;
+    align-items:; */
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+
+    margin-top: 20px;
+    
+    background-color: #CC704B;
+    text-align: center;
+    font-weight: bold;
+
+    font-size: 1.5rem;
+    color: darkolivegreen;
+    font-family: 'Merriweather', serif;
+
+}
+
+.firstImage {
+    /* width:50%;
+    height: 50%; */
+    justify-content:flex-start;
+    padding: 5px;
+    width: 150px;
+
+}
+
+.secondImage {
+    width: 150px;
+    padding: 5px;
+    /* border-color: red;
+    border-width: 1rem; */
+}
+
+footer {
+    
+   
+    display: flex; 
     justify-content: center;
     align-items: center;
+
+    /* margin-top: auto; */
+
+    /* position:absolute; */
+    margin-bottom: 50px;
+    /* height: 100px;  */
+    margin-top: 580px;
+    /* clear:both; */
+    background-color:#ce8b70;
+    font-family: 'Bebas Neue', 'serif';
+    width: 100%;
+    border-radius: 30px;
+
 }

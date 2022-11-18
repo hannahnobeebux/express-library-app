@@ -14,14 +14,17 @@
     <title>The Online Library</title>
 </head>
 
-<header>
-    <h1>Welcome to the Online Library</h1>
-</header>
+
 
 
 <body>
+
+    <header>
+        <h1>📚 Welcome to the Online Library 📚</h1>
+    </header>
     
     <h2>Have you been reading? Make sure to update your reading lists! 📔</h2>
+    <!-- <svg></svg> -->
     <form action="/update" method="POST">
         <section id="choosing">
 
@@ -31,9 +34,9 @@
             <select name="name" id="dropdown-menu-user">
                 <option value="">What is your name?</option>
             </select>
+            
+            <!-- HOW TO TARGET EACH DROPDOWN SEPARATELY? -->
 
-           
-    
             <!-- BOOK -->
             <label for="book">Choose a book</label>
             <select name="book" id="dropdown-menu-book">
@@ -42,7 +45,7 @@
     
         </section>
 
-        <section id="buttons">
+        <!-- <section id="buttons"> -->
             <!-- <h3>To Be Read</h3> -->
             <section id="tbr"></section>
             <button id="tbr-list" name="status" value="tbr">Add to TBR</button>
@@ -51,8 +54,8 @@
     
             <!-- <h3>Reading</h3> -->
             <section id="reading"> </section>
-            <!-- <button id="reading-list" name="status" value="reading">Add to Reading</button> -->
-            <input type="submit" id="reading-list"name="status" value="reading" placeholder="Add to Reading">
+            <button id="reading-list" name="status" value="reading">Add to Reading</button>
+            <!-- <input type="submit" id="reading-list"name="status" value="reading" placeholder="Add to Reading"> -->
     
     
             <!-- <h3>Read</h3> -->
@@ -66,10 +69,10 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-
-            <input type="submit" id="read-list"name="status" value="read" placeholder="Add to Read">
+            <button id="read-list" name="status" value="read">Add to Read</button>
+            <!-- <input type="submit" id="read-list"name="status" value="read" placeholder="Add to Read"> -->
         
-        </section>
+        <!-- </section> -->
 
     </form>
 
@@ -79,16 +82,27 @@
     </section> -->
 
     <div id="chosen-book">
-        <button type="submit" id="submitting-book">Submit!</button>
+        <!-- <button type="submit" id="submitting-book">Submit!</button> -->
     </div>
 
 
+  
     
 
   
 
     <div class = "dropdown" id="tbr-dropdown">
    </div>
+
+   <footer>
+    <h3>Made with ♥️ in London</h3>
+    <br>
+    <!-- <p>Make sure to follow us on social media!</p>
+    <a href="https://github.com/hannahnobeebux/express-library-app">Github</a>
+    <a href="www.linkedin.co.uk">Linkedin</a> -->
+</footer>
+
+
 
 
     
@@ -122,4 +136,6 @@
 
     
 </body>
+
+
 </html>

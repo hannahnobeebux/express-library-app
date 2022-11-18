@@ -54,7 +54,7 @@ app.post("/update", async (req,res) => {
     const rating = req.body.rating
 
     if(status === undefined) {
-        return res.status(400).send("undefined rating")
+        res.status(400).send("undefined rating")
     }
 
     // if(rating === undefined){
@@ -64,17 +64,29 @@ app.post("/update", async (req,res) => {
     const user = await User.findOne({where : {firstName: chosenUser}})
     const book = await Book.findOne({where: {title: chosenBook}})
 
+   
+
     // console.table(user, book)
 
     if (user === null || book === null){
-        return res.status(404).send("User or Book not found")
+        res.status(404).send("User or Book not found")
     } 
+
+
+    //CHECKING IF THE ENTRY OF THAT USER AND BOOK ALREADY EXISTS 
+    // const userExists = await db.User_Book.findOne({where: {UserId: user.id}})
+    //409 - conflict
+    // if(userExists) {
+    //     res.status(409).send("This entry already exists")
+    // }
+
+    
 
     db.query(`INSERT INTO User_Book (UserId, BookId, rating, status) VALUES (${user.id}, ${book.id}, '${rating}', '${status}')`)
 
     await user.addBook(book)
     // res.sendStatus(200)
-    res.status(200).send({user: user.name, book: book.title, status: status, rating: rating})
+    res.status(200).send({user: user.firstName, book: book.title, status: status, rating: rating})
 
     // res.redirect("../")
 
@@ -86,10 +98,10 @@ app.post("/update", async (req,res) => {
 
 
 
-app.listen(5000, async () => {
+// app.listen(5000, async () => {
     // await seed()
-    console.log("listening on port 5000")
-})
+//     console.log("listening on port 5000")
+// })
 
 
 module.exports = app
