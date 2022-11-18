@@ -1,38 +1,16 @@
-//TESTING THAT JS FILE IS LINKED
-//alert("hello world")
+//NOTE - can't access data from backend in the front-end 
 
 
-
-
-// const Book  = require("../models/Book")
-
-// import Book from "../models/book.model"
-
-//can't access data from backend in the front-end 
-
-//this is the container i will be appending it to
-const choosingBookSection = document.getElementById('choosing-a-book')
-
+//OLD CODE - ACCESSING AN ELEMENT TO APPEND A RESPONSE DEPENDING ON USER INPUT 
 // const enteringName = document.getElementById('entering-name')
 // const submitNameButton = document.getElementById('submitting-name')
 
-
-
-// const tbrList = document.getElementById('tbr-list')
-// const readingList = document.getElementById('reading-list')
-// const readList = document.getElementById('read-list')
-
-
-
-
-
-// const choosingBookButton = document.getElementById("dropdown-book-button")
-
+//NEEDED CODE - FOR THE FETCH 
 let myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
 
-
+//OLD CODE - DISPLAYING A USER'S NAME FROM THE INPUT WHEN A BUTTON IS CLICKED 
 // submitNameButton.addEventListener("click", () => {
 //     fetch('/inputtedName',  {
 //         method: "POST", 
@@ -47,32 +25,24 @@ myHeaders.append("Content-Type", "application/json");
 //     })
 // })
 
-function addUsers () {
 
-}
-
-function addBooks () {
-
-}
-
-// {id, title, author, rating, description}
-
-
+//DROPDOWN MENU FUNCTION FOR BOOK - USING DATA FROM DATABASE 
 let bookTitleDropdown = document.querySelector("#dropdown-menu-book")
 function createBookItem(book) {
     let listItem = document.createElement('option') 
     let bookTitle = book.title 
     listItem.textContent = bookTitle
     listItem.value = bookTitle
+    //OLD METHOD - CREATING EACH DROP DOWN OPTION AS A BUTTON
     // let button = document.createElement('button')
     // button.innerHTML = bookTitle
     // button.type = 'button'
     // (listItem).append(button)
 
-   
     return listItem
 }
 
+//DROPDOWN MENU FUNCTION FOR USER - USING DATA FROM DATABASE 
 let userDropdown = document.querySelector('#dropdown-menu-user')
 function createUser(user){
     let listItem = document.createElement('option')
@@ -82,30 +52,12 @@ function createUser(user){
     return listItem
 }
 
-
-
-// const value = document.createElement('option')
-// value.textContent = ""
-// value.value = "test"
-// bookTitleDropdown.appendChild(value)
-
-
+//USING DROPDOWN MENU FOR BOOKS 
 async function displayBooks() {
     const response = fetch("./books")
-    //{
-        // method: "POST", 
-        // headers: myHeaders,
-        // body: JSON.stringify({
-        //     books: await Book.findAll()
-        // })
 
-    // })
     .then(res => res.json())
     .then((data) => {
-        // choosingBookSection.innerHTML = books
-        // console.log(data)
-
-        // data.forEach(book => choosingBookSection.innerHTML += book.title)
 
         data.forEach(book => bookTitleDropdown.appendChild(createBookItem(book)))
     })
@@ -113,26 +65,22 @@ async function displayBooks() {
     return response
 }
 
-
+//USING DROPDOWN MENU FOR USERS 
 async function displayUsers(){
     const response = fetch('./users')
     .then(res => res.json())
     .then((data) => {
         data.forEach(user => userDropdown.appendChild(createUser(user)))
     })
-
     return response
 }
 
-// tbrButton.addEventListener("click", async () => {
-//     const response = 
-// })
-
-
+//RUNNING THE FUNCTIONS THAT WILL POPULATE DROP DOWN MENUS 
 displayBooks()
 displayUsers()
 
 //GETTING THE DATA INPUTTED BY THE USER AND DISPLAYING ONTO WEB PAGE 
+//IMPORTING/REQUIRING ALL THE NECESSARY HTML ELEMENTS 
 const chosenBook = document.getElementById("chosen-book")
 
 const tbrButton = document.getElementById('tbr-list')
@@ -143,17 +91,18 @@ const userName = document.getElementById("dropdown-menu-user")
 const bookTitle = document.getElementById('dropdown-menu-book')
 const rating = document.getElementById('rating')
 
+//CREATING GIF 1
 const img = document.createElement('img')
 img.classList.add("firstImage")
 img.setAttribute('src', 'https://media.giphy.com/media/WoWm8YzFQJg5i/giphy.gif')
 
-
+//CREATING GIF 2
 const img2 = document.createElement('img')
 img2.classList.add("secondImage")
 img2.setAttribute('src', 'https://media.giphy.com/media/l2Je66zG6mAAZxgqI/giphy.gif')
 
 
-
+//1 - TBR BUTTON EVENT LISTENER 
 tbrButton.addEventListener("click",  (event) => {
     event.preventDefault()
     console.log(userName.value, bookTitle.value)
@@ -167,19 +116,27 @@ tbrButton.addEventListener("click",  (event) => {
             rating: rating.value
             // status: tbrButton.value
         })})
-    .then(res => res.json())
+    .then(res => {
+        return res.json()
+    })
     .then((result)=> {
-        if (!rating.value) {
-            rating.value = "rating-not-provided"
-            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list. Try giving a rating next time!`
-        } 
-        console.log(result)
+        if(result.err) {
+            window.alert(result.err)
+            return 
+        }
+        if (result.rating === "rating-not-provided") {
+            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list. Please give ratings when you can!`
+        }  else {
+            console.log(result)
         // chosenBook.appendChild(img2)
-        chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list!`
+            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list and giving it a rating of ${result.rating === "rating-not-provided" ? "no rating": result.rating}!`
+        }
         chosenBook.appendChild(img)
+        
         })
     })
 
+//2 - READING BUTTON EVENT LISTENER 
 readingButton.addEventListener("click",  (event) => {
     event.preventDefault()
     console.log(userName.value, bookTitle.value)
@@ -194,17 +151,21 @@ readingButton.addEventListener("click",  (event) => {
         })})
     .then(res => res.json())
     .then((result)=> {
-        if (!rating.value) {
-            rating.value = "rating-not-provided"
-            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list. Try giving a rating next time!`
-        } 
-        console.log(result)
-        // chosenBook.appendChild(img2)
-        chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list!`
+        if(result.err) {
+            window.alert(result.err)
+            return 
+        }
+        if (result.rating === "rating-not-provided") {
+            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list. Please give ratings when you can!`
+        } else {
+            console.log(result)
+            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list and giving it a rating of ${result.rating === "rating-not-provided" ? "no rating": result.rating}!`
+        }
         chosenBook.appendChild(img)
         })
     })
 
+//3 - READ BUTTON EVENT LISTENER 
 readButton.addEventListener("click",  (event) => {
     event.preventDefault()
     console.log(userName.value, bookTitle.value)
@@ -216,40 +177,27 @@ readButton.addEventListener("click",  (event) => {
             book: bookTitle.value, 
             status: "reading", 
             rating: rating.value
-            // status: tbrButton.value
         })})
     .then(res => res.json())
     .then((result)=> {
-        //IF THE RATING IS NOT DEFINED, ADD "rating-not-provide" TO THE TABLE AND SEND A DIFFERENT MESSAGE TO THE USER 
-        if (!rating.value) {
-            rating.value = "rating-not-provided"
-            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list. Try giving a rating next time!`
-        } 
-        console.log(result)
-        // chosenBook.appendChild(img2)
-        chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list and giving it a rating of ${result.rating}!`
+        if(result.err) {
+            window.alert(result.err)
+            return 
+        }
+        //IF THE RATING IS NOT DEFINED, HAS DEFAULT --> "rating-not-provided" TO THE TABLE AND SEND A DIFFERENT MESSAGE TO THE USER 
+        if (result.rating === "rating-not-provided") {
+            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list. Please give ratings when you can!`
+        } else {
+            console.log(result)
+            chosenBook.textContent = `Thank you ${result.user} for adding ${result.book} to your ${result.status} list and giving it a rating of ${result.rating === "rating-not-provided" ? "no rating": result.rating}!`
+        }
         chosenBook.appendChild(img)
         })
 
 
-        // fetch(`/update`, {
-        //     method: "GET", 
-        //     headers: myHeaders,
-        // })
     })
 
-// readButton.addEventListener("click", (event) => {
-//     event.preventDefault()
-//     try {
-//         const res = await fetch 
-//     } catch (error) {
-        
-//     }
-// })
-
-
-
-
+//OLD CODE FOR TESTING - MAKING SURE EVENT LISTENERS WORK
 const submitButton = document.getElementById('submitting-book')
 submitButton.addEventListener("click", () => {
     console.log("hello")
@@ -257,23 +205,7 @@ submitButton.addEventListener("click", () => {
 })
 
 
-
-
-// tbrButton.addEventListener("click", () => {
-//     const name = userName.value 
-//     console.log(name)
-// })
-
-// function chooseStatus () {
-//     const response = fetch('/update')
-// }
-
-
-
-
-
-
-
+//PREVIOUS CODE THAT HELPED ME IN DEVELOPMENT 
 //choosingBookItem.append(createListItem(book))
 // choosingBookButton.addEventListener("click", displayBooks)
 
@@ -290,4 +222,13 @@ submitButton.addEventListener("click", () => {
 
 
 // choosingBookButton.addEventListener("click", displayBooks)
+
+// tbrButton.addEventListener("click", () => {
+//     const name = userName.value 
+//     console.log(name)
+// })
+
+// function chooseStatus () {
+//     const response = fetch('/update')
+// }
 

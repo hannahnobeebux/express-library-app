@@ -60,7 +60,6 @@ body{
     /* display: flex;
     flex-direction: column; */
    
-
     /* display:grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(10, 10%); */
@@ -98,10 +97,15 @@ form #choosing {
     grid-area: e;
 }
 
-/* can't access grid?? */
+
+.hover:hover{
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+
 #tbr-list{
-    /* grid-column: 5;
-    grid-row: 4; */
+   
     grid-area: a;
     gap: 10px;
 
@@ -116,27 +120,6 @@ form #choosing {
 
     width: 110px;
 
-    /* background-color: #CDDEC1; */
-}
-
-#tbr-list :hover {
-    background-color: #3e8e41;
-    color: #CDDEC1;
-}
-
-#reading-list :hover {
-    background-color: #3e8e41;
-    color: #CDDEC1;
-}
-
-#read-list :hover {
-    background-color: #3e8e41;
-    color: #CDDEC1;
-}
-
-#rating :hover {
-    background-color: #3e8e41;
-    color: #CDDEC1;
 }
 
 #reading-list{
@@ -188,6 +171,7 @@ form #choosing {
     border-radius: 20px;
     border-color: #3e8e41;
     font-family: 'Roboto Condensed', 'serif';
+    transition: 0.2s;
 
     width: max-content;
 }
@@ -253,3 +237,24 @@ footer {
     border-radius: 30px;
 
 }
+
+/* OLD CODE */
+/* #tbr-list:hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+#reading-list:hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+#read-list:hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+}
+
+#rating:hover {
+    background-color: #3e8e41;
+    color: #CDDEC1;
+} */
